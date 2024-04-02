@@ -1,1 +1,13 @@
-<p>tournoi-liste works!</p>
+<H1>Tournaments</H1>
+
+<button (click)="onRefresh()">Refresh</button>
+
+<div class="container-fluid">
+  <!-- @for (tournament of tournaments; track tournaments.id) { .. } -->
+  <div class="row" *ngFor="let tournament of tournaments">
+    id_Tournoi: {{id}}
+    <A class="col-md-2" routerLink="/tournaments/{{tournament.id}}">Detail</A>
+    <label class="col-md-5">{{tournament.nom}}</label>
+
+  </div>
+</div>

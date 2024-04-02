@@ -1,0 +1,23 @@
+db = db.getSiblingDB("pingpongTournoi");
+
+db.personne.drop();
+db.match.drop();
+db.lieu.drop();
+db.tournoi.drop();
+
+db.personne.insertMany([
+    {"_id": 1, "nom": "Hyuga", "prenom": "Hinata", "dateNaissance" : ISODate("2001-12-27"), "genre": "feminin", "niveau": "avancée", "premierSecours": true},
+    {"_id": 2, "nom": "Uzumaki", "prenom": "Naruto", "dateNaissance" : ISODate("2001-10-10"), "genre": "masculin", "niveau": "debutant", "premierSecours": true}
+]);
+
+db.match.insertOne(
+    {"_id": 1, "score1": 11, "score2": 3, "horaire": new Date("2024-03-15T15:30:00Z"), "joueur1": 1, "joueur2": 2, "idTournoi":1}
+);
+
+db.lieu.insertOne(
+    {"_id": 1, "nom": "Stade de France", "adresse": "Stade de France, 93200 Saint-Denis", "capacite": 15, "nbVestiare": 30, "presenceVentilation": true}
+);
+
+db.tournoi.insertOne(
+    {"_id": 1, "date": ISODate("2024-03-15"), "niveauCompet": "intermediaire", "categorie": "mixte", "dureeMax": "3 jours", "listePersonne": [{"idPers": 1, "status": "joueur", "points": 0}], "idLieu": 1, "equipement": [{"nbBalle": 20, "nbTable": 15, "nbMarqueurs": 15, "nbFilets": 30, "nbRaquettes": 40}]}
+);
