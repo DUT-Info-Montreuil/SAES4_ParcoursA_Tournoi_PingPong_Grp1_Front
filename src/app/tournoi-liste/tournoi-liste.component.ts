@@ -1,11 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {NgForOf} from "@angular/common";
-import { TournoiService } from '../tournoi.service';
+import { TournoiService } from '../services/tournoi.service';
 
 
 export interface Tournoi {
-  id: string;
+  id: number;
+  date: Date,
+  niveauCompet: string,
+  categorie: string,
+  dureeMax: number,
 };
 
 @Component({
@@ -13,10 +17,9 @@ export interface Tournoi {
   standalone: true,
   imports: [RouterLink,NgForOf],
   templateUrl: './tournoi-liste.component.html',
-  styleUrl: './tournoi-liste.component.css'
 })
 export class TournoiListeComponent {
-  tournaments: Tournoi[] = []; 
+  tournaments: Tournoi[] = [] 
 
   constructor(private tournoiService: TournoiService){}
   

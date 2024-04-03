@@ -1,0 +1,19 @@
+<h1>Les tournois</h1>
+
+<button (click)="onRefresh()">Refresh</button>
+
+<div class="container-fluid">
+  <ul>
+  <div class="row" *ngFor="let tournament of tournaments">
+    <div class="col-md-2">
+      <li>
+      date: {{tournament.date}} &nbsp;
+      niveau: {{tournament.niveauCompet}} &nbsp;
+      catégorie: {{tournament.categorie}} &nbsp;
+      durée du tournoi: {{tournament.dureeMax}} heures &nbsp;
+      <a class="col-md-2" [routerLink]="['/tournaments', tournament.id]">Rejoindre</a>
+      </li>
+    </div>
+  </div>
+  </ul>
+</div>

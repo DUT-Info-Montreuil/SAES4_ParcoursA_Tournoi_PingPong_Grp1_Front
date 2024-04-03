@@ -1,0 +1,28 @@
+<p>rejoindre-tournoi works!</p>
+<form (ngSubmit)="onClickSubmit()">
+
+    <label for="nom">Nom:</label>
+    <input type="text" id="nom" name="nom" [(ngModel)]="participant.nom" required><br>
+    
+    <label for="dateNaissance">Date de Naissance:</label>
+    <input type="date" id="dateNaissance" name="dateNaissance" [(ngModel)]="participant.dateNaissance" required><br>
+    
+    <label for="genre">Genre:</label>
+    <select id="genre" name="genre" [(ngModel)]="participant.genre" required>
+      <option value="masculin">Masculin</option>
+      <option value="féminin">Féminin</option>
+    </select><br>
+    
+    <label for="niveau">Niveau:</label>
+    <select id="niveau" name="niveau" [(ngModel)]="participant.niveau" required>
+      <option value="débutant">Débutant</option>
+      <option value="intermédiaire">Intermédiaire</option>
+      <option value="avancé">Avancé</option>
+    </select><br>
+    
+    <label for="premierSecours">Premier Secours:</label>
+    <input type="checkbox" id="premierSecours" name="premierSecours" [(ngModel)]="participant.premierSecours"><br>
+    
+    <button type="submit">Valider</button>
+  </form>
+  
