@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {NgForOf} from "@angular/common";
-import { TournoiService } from '../services/tournoi.service';
+import { TournoiService } from '../tournoi.service';
 
 
 export interface Tournoi {
   id: string;
-  nom: string;
 };
 
 @Component({

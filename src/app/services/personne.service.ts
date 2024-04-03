@@ -8,12 +8,12 @@ export class PersonneService {
   constructor(private http: HttpClient) {}
 
   getAllPersonnes() {
-    return this.http.get('/personnes');
+    return this.http.get('/api/personnes');
   }
 
   addPersonne(personneData: any) {
-    return this.http.post('/personnes', personneData);
+    return this.http.post('/api/personnes', personneData);
   }
-
+  
   // Ajoutez d'autres méthodes pour les opérations CRUD
 }

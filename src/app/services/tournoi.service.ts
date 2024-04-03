@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {Observable} from "rxjs";
-import { Tournoi } from '../tournoi-liste/tournoi-liste.component';
+import { Tournoi } from './tournoi-liste/tournoi-liste.component';
 
 @Injectable({
   providedIn: 'root'
@@ -14,5 +14,8 @@ export class TournoiService {
     return this.httpClient.get<Tournoi[]>('/api/tournois/');
   }
 
+  addTournoi(tournoi: any){
+    return this.httpClient.post('/api/tournois/', tournoi);
+  }
 
 }

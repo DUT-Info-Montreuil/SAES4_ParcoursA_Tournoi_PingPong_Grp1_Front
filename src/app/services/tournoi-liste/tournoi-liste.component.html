@@ -1,0 +1,12 @@
+<h1>Tournaments</h1>
+
+<button (click)="onRefresh()">Refresh</button>
+
+<div class="container-fluid">
+  <div class="row" *ngFor="let tournament of tournaments">
+    <div class="col-md-2">
+      id_Tournoi: {{ tournament.id }}
+    </div>
+    <a class="col-md-2" [routerLink]="['/tournaments', tournament.id]">Detail</a>
+  </div>
+</div>
