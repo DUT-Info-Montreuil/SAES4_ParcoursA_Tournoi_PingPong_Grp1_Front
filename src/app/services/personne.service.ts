@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { ListePersonne } from '../personne-liste/personne-liste.component';
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +9,8 @@ import { HttpClient } from '@angular/common/http';
 export class PersonneService {
   constructor(private http: HttpClient) {}
 
-  getAllPersonnes() {
-    return this.http.get('/api/personnes');
+  getAllPersonnes():Observable<ListePersonne[]> {
+    return this.http.get<ListePersonne[]>('/api/personnes/');
   }
 
   addPersonne(personneData: any) {

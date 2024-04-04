@@ -1,1 +1,20 @@
 <p>personne-liste works!</p>
+<button (click)="onRefresh()">Refresh</button>
+
+<div class="container-fluid">
+  <ul>
+  <div class="row" *ngFor="let personne of personnes">
+    <div class="col-md-2">
+      <li>
+      id: {{personne.id}} &nbsp;
+      nom: {{personne.nom}} &nbsp;
+      prenom: {{personne.prenom}} &nbsp;
+      genre: {{personne.genre}}  &nbsp;
+      genre: {{personne.genre}}  &nbsp;
+      niveau: {{personne.niveau}}  &nbsp;
+      <a class="col-md-2" [routerLink]="['/']">Ajouter à un tournoi</a>
+      </li>
+    </div>
+  </div>
+  </ul>
+</div>

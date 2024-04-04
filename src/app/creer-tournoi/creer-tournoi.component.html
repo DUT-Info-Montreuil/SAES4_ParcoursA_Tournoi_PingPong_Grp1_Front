@@ -4,10 +4,16 @@
     <input type="date" name="date" [(ngModel)]="tournoi.date" required><br>
   
     <label>Niveau de compétition: </label>
-    <input type="text" name="niveauCompetition" [(ngModel)]="tournoi.niveauCompet" required><br>
-  
+    <select id="niveauCompet" name="niveauCompet" [(ngModel)]="tournoi.niveauCompet" required>
+        <option value="debutant">débutant</option>
+        <option value="intermédiaire">intermédiaire</option>
+        <option value="confirmé">confirmé</option>
+        <option value="pro">pro</option>
+      </select><br>  
     <label>Catégorie: </label>
-    <input type="text" name="categorie" [(ngModel)]="tournoi.categorie" required><br>
+    <select id="mixte" name="mixte" [(ngModel)]="tournoi.categorie" required>
+        <option value="mixte">mixte</option>
+      </select><br>  
   
     <label>Durée maximale: </label>
     <input type="number" name="dureeMax" [(ngModel)]="tournoi.dureeMax" required><br>
