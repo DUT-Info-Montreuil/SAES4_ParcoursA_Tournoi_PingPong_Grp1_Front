@@ -6,6 +6,6 @@ import { PersonneListComponent } from './personne-liste/personne-liste.component
 export const routes: Routes = [
     {path:'tournoi-liste', component:TournoiListeComponent},
     {path:'creer-tournoi', component:CreerTournoiComponent}, 
-    {path:'rejoindre-tournoi/:id', component:RejoindreTournoiComponent},
+    {path:'rejoindre-tournoi', component:RejoindreTournoiComponent},
     {path:'personne-liste', component:PersonneListComponent},
 ];
