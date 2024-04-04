@@ -9,6 +9,6 @@ export class RejoindreTournoiService {
   constructor(private httpClient:HttpClient) { }
 
     addPersonne(personneData: any) {
-    return this.httpClient.post('/api/personnes', personneData);
-  }
+    return this.httpClient.post('/api/personnes/', personneData,);
+    }
 }

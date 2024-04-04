@@ -1,32 +1,33 @@
+<p>creer-tournoi works!</p>
 <form (ngSubmit)="onClickSubmit()">
-  <label>Date: </label>
-  <input type="date" name="date" [(ngModel)]="tournoi.date" required><br>
-
-  <label>Niveau de compétition: </label>
-  <input type="text" name="niveauCompetition" [(ngModel)]="tournoi.niveauCompet" required><br>
-
-  <label>Catégorie: </label>
-  <input type="text" name="categorie" [(ngModel)]="tournoi.categorie" required><br>
-
-  <label>Durée maximale: </label>
-  <input type="number" name="dureeMax" [(ngModel)]="tournoi.dureeMax" required><br>
-
-  <label>Adresse lieu: </label>
-  <input type="text" name="idLieu" [(ngModel)]="tournoi.idLieu" required><br>
-  <br>
-
-  <label>Equipement:</label><br>
-  <label>Nombres de balles : </label>
-  <input type="number" name="nbBalles" [(ngModel)]="tournoi.equipement.nbBalles" required><br>
-  <label>Nombres de tables : </label>
-  <input type="number" name="nbTables" [(ngModel)]="tournoi.equipement.nbTables" required><br>
-  <label>Nombres de marqueurs : </label>
-  <input type="number" name="nbMarqueurs" [(ngModel)]="tournoi.equipement.nbMarqueurs" required><br>
-  <label>Nombres de filets : </label>
-  <input type="number" name="nbFilets" [(ngModel)]="tournoi.equipement.nbFilets" required><br>
-  <label>Nombres de Raquettes : </label>
-  <input type="number" name="nbRaquettes" [(ngModel)]="tournoi.equipement.nbRaquettes" required><br>
-
-  <button type="submit">Valider</button>
-  <div *ngIf="message">{{message}}</div>
-</form>
+    <label>Date: </label>
+    <input type="date" name="date" [(ngModel)]="tournoi.date" required><br>
+  
+    <label>Niveau de compétition: </label>
+    <input type="text" name="niveauCompetition" [(ngModel)]="tournoi.niveauCompet" required><br>
+  
+    <label>Catégorie: </label>
+    <input type="text" name="categorie" [(ngModel)]="tournoi.categorie" required><br>
+  
+    <label>Durée maximale: </label>
+    <input type="number" name="dureeMax" [(ngModel)]="tournoi.dureeMax" required><br>
+  
+    <label>Adresse lieu: </label>
+    <input type="text" name="idLieu" [(ngModel)]="tournoi.idLieu" required><br>
+    <br>
+  
+    <label>Equipement:</label><br>
+    <label>Nombres de balles : </label>
+    <input type="number" name="nbBalles" [(ngModel)]="tournoi.equipement.nbBalles" required><br>
+    <label>Nombres de tables : </label>
+    <input type="number" name="nbTables" [(ngModel)]="tournoi.equipement.nbTables" required><br>
+    <label>Nombres de marqueurs : </label>
+    <input type="number" name="nbMarqueurs" [(ngModel)]="tournoi.equipement.nbMarqueurs" required><br>
+    <label>Nombres de filets : </label>
+    <input type="number" name="nbFilets" [(ngModel)]="tournoi.equipement.nbFilets" required><br>
+    <label>Nombres de Raquettes : </label>
+    <input type="number" name="nbRaquettes" [(ngModel)]="tournoi.equipement.nbRaquettes" required><br>
+  
+    <button type="submit">Valider</button>
+    <div *ngIf="message">{{message}}</div>
+  </form>

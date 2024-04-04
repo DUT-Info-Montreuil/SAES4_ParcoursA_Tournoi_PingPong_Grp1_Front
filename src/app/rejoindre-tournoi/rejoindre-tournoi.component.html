@@ -4,6 +4,10 @@
     <label for="nom">Nom:</label>
     <input type="text" id="nom" name="nom" [(ngModel)]="participant.nom" required><br>
     
+    <label for="nom">Prénom:</label>
+    <input type="text" id="prenom" name="prenom" [(ngModel)]="participant.prenom" required><br>
+    
+
     <label for="dateNaissance">Date de Naissance:</label>
     <input type="date" id="dateNaissance" name="dateNaissance" [(ngModel)]="participant.dateNaissance" required><br>
     
@@ -11,6 +15,7 @@
     <select id="genre" name="genre" [(ngModel)]="participant.genre" required>
       <option value="masculin">Masculin</option>
       <option value="féminin">Féminin</option>
+      <option value="autre">Autre</option>
     </select><br>
     
     <label for="niveau">Niveau:</label>
@@ -24,5 +29,6 @@
     <input type="checkbox" id="premierSecours" name="premierSecours" [(ngModel)]="participant.premierSecours"><br>
     
     <button type="submit">Valider</button>
+    <div *ngIf="message">{{message}}</div>
   </form>
   

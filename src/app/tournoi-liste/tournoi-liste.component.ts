@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import {NgForOf} from "@angular/common";
 import { TournoiService } from '../services/tournoi.service';
-
+import { RejoindreTournoiComponent } from '../rejoindre-tournoi/rejoindre-tournoi.component';
 
 export interface Tournoi {
   id: number;
@@ -15,7 +15,7 @@ export interface Tournoi {
 @Component({
   selector: 'app-tournoi-liste',
   standalone: true,
-  imports: [RouterLink,NgForOf],
+  imports: [RouterLink,NgForOf,RejoindreTournoiComponent],
   templateUrl: './tournoi-liste.component.html',
 })
 export class TournoiListeComponent {
