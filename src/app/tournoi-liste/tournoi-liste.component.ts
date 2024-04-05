@@ -24,7 +24,7 @@ export class TournoiListeComponent {
   constructor(private tournoiService: TournoiService){}
   
   onRefresh() {
-    console.log("onRefresh...");
+    console.log("onRefresh....");
     this.tournoiService.listeTournois().subscribe(
       res => {
         this.tournaments = res;
