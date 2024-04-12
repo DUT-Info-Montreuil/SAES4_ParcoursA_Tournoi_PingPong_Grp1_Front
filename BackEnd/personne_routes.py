@@ -13,7 +13,7 @@ def get_personne_list():
     personnes = db.personne.find()
     liste_personne = list(personnes)
     liste_personnes_json = json_util.dumps(liste_personne, default=json_util.default)  # Utilisez json_util.default pour gérer la sérialisation des objets datetime
-    return liste_personnes_json
+    return liste_personne
 
 
 @personne_bp.route('/<int:personne_id>', methods=['GET'])
@@ -60,34 +60,21 @@ def add2_personne():
         return jsonify({"message": f"Erreur lors de l'ajout de la personne : {str(e)}"}), 500
 
 
-@personne_bp.route('/<string:personne_id>', methods=['PUT'])
+@personne_bp.route('/<int:personne_id>', methods=['PUT'])
 def update_personne(personne_id):
     data = request.json
 
     if not data:
         return jsonify({"message": "Aucune donnée fournie pour la mise à jour de la personne"}), 400
 
-    personne = db.personne.find_one({'_id': ObjectId(personne_id)})
+    personne = db.personne.find_one({'_id': personne_id})
     if not personne:
         return jsonify({"message": "Personne non trouvée"}), 404
 
     try:
-        db.personne.update_one({'_id': ObjectId(personne_id)}, {'$set': data})
+        db.personne.update_one({'_id': personne_id}, {'$set': data})
         return jsonify({"message": "Personne mise à jour avec succès"}), 200
     except Exception as e:
         return jsonify({"message": f"Erreur lors de la mise à jour de la personne : {str(e)}"}), 500
 
 
-
-
-if __name__ == "__main__":
-    #personnes = db.personne.find()
-    #list_personne = list(personnes)
-    #print(list_personne)
-    pers = get_personne_list()
-    print(pers)
-
-
-
-#14:06:2004/feminin/debutant/Stacy/Gwen/True
-#Stacy/Gwen/14:06:2004/feminin/debutant/True
