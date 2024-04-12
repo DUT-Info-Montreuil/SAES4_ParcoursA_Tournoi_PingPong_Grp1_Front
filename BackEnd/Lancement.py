@@ -16,10 +16,10 @@ def hello_world():
     return 'Hello, world!'
 
 
-app.register_blueprint(tournoi_bp, url_prefix='/tournois')
-app.register_blueprint(personne_bp, url_prefix='/personnes')
-app.register_blueprint(match_bp, url_prefix='/matchs')
-app.register_blueprint(lieu_bp, url_prefix='/lieus')
+app.register_blueprint(tournoi_bp, url_prefix='/api/tournois')
+app.register_blueprint(personne_bp, url_prefix='/api/personnes')
+app.register_blueprint(match_bp, url_prefix='/api/matchs')
+app.register_blueprint(lieu_bp, url_prefix='/api/lieus')
 
 
 
