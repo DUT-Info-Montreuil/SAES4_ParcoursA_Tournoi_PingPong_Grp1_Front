@@ -229,8 +229,3 @@ def creation_match():
 
                 return jsonify(
                     {"message": "Les matchs pour la phase suivante du tournoi ont été planifiés avec succès."}), 200
-
-
-
-
-
