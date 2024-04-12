@@ -1,3 +1,13 @@
+SAE S4
+
+Huseyin Cakar, Esteban Marie-Louise
+
+Note :
+  La collection match est modifié pendant un tournoi où sont ajoutés score1(Joueur1) et score2(Joueur2)
+
+
+
+
 # GestionTournoi
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.3.
