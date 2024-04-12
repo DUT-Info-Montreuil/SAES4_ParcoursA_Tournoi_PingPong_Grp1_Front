@@ -63,19 +63,19 @@ def add2_lieu():
         return jsonify({"message": f"Erreur lors de l'ajout du lieu : {str(e)}"}), 500
 
 
-@lieu_bp.route('/<string:lieu_id>', methods=['PUT'])
+@lieu_bp.route('/<int:lieu_id>', methods=['PUT'])
 def update_lieu(lieu_id):
     data = request.json
 
     if not data:
         return jsonify({"message": "Aucune donnée fournie pour la mise à jour du lieu"}), 400
 
-    lieu = db.lieu.find_one({'_id': ObjectId(lieu_id)})
+    lieu = db.lieu.find_one({'_id': lieu_id})
     if not lieu:
         return jsonify({"message": "Lieu non trouvé"}), 404
 
     try:
-        db.lieu.update_one({'_id': ObjectId(lieu_id)}, {'$set': data})
+        db.lieu.update_one({'_id': lieu_id}, {'$set': data})
         return jsonify({"message": "Lieu mis à jour avec succès"}), 200
     except Exception as e:
         return jsonify({"message": f"Erreur lors de la mise à jour du lieu : {str(e)}"}), 500
