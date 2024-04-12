@@ -10,3 +10,4 @@ class Connection:
 
     def get_database(self):
         return self.database
+
