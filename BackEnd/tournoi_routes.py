@@ -3,21 +3,17 @@ from pymongo import MongoClient
 import json
 from bson import json_util  # Importez json_util depuis bson pour gérer la sérialisation des objets datetime
 import Connection
-
 tournoi_bp = Blueprint('tournois', __name__)
 
 connection = Connection.Connection()
 db = connection.get_database()
 
-
 @tournoi_bp.route('/', methods=['GET'])
 def get_tournoi_list():
     tournois = db.tournoi.find()
     liste_tournois = list(tournois)
-    liste_tournois_json = json.dumps(liste_tournois,
-    default=json_util.default)  # Utilisez json_util.default pour gérer la sérialisation des objets datetime
+    liste_tournois_json = json.dumps(liste_tournois, default=json_util.default)  # Utilisez json_util.default pour gérer la sérialisation des objets datetime
     return liste_tournois_json
-
 
 @tournoi_bp.route('/<int:tournoi_id>', methods=['GET'])
 def get_tournoi_id(tournoi_id):
@@ -28,26 +24,27 @@ def get_tournoi_id(tournoi_id):
         return jsonify({"message": "Tournoi non trouvée"}), 404  # Renvoie une réponse JSON avec un code de statut 404
 
 
+
 @tournoi_bp.route('/', methods=['POST'])
 def add_tournoi():
     data = request.json
 
-    required_fields = ['date', 'niveauCompet', 'categorie', 'dureeMax', 'listePersonne', 'idLieu', 'equipement']
+    required_fields = ['date', 'niveauCompet', 'categorie', 'dureeMax', 'idLieu', 'equipement']
     if not all(field in data for field in required_fields):
         return jsonify({"message": "Certains champs requis sont manquants"}), 400
 
     try:
+        tournoi_id = db.tournoi.find_one({}, {'_id': 1}, sort=[('_id', -1)])
+        if tournoi_id is not None:
+            tournoi_id_int = int(tournoi_id['_id']) + 1
+        else:
+            tournoi_id_int = 1
+        data['_id'] = tournoi_id_int
         db.tournoi.insert_one(data)
         return jsonify({"message": "Tournoi ajouté avec succès"}), 201
     except Exception as e:
         return jsonify({"message": f"Erreur lors de l'ajout du tournoi : {str(e)}"}), 500
 
-
-"""
-@tournoi_bp.route('/<string:date>/<string:niveauCompet>/<string:categorie>/<string:dureeMax>/<', methods=['POST'])
-def add_tournoi():
-
-"""
 
 
 @tournoi_bp.route('/<int:tournoi_id>', methods=['PUT'])
@@ -68,15 +65,5 @@ def update_tournoi(tournoi_id):
         return jsonify({"message": f"Erreur lors de la mise à jour du tournoi : {str(e)}"}), 500
 
 
-if __name__ == '__main__':
-    tournois = db.personne.find()
-    liste_tournois = list(tournois)
-    print(liste_tournois)
-    print(liste_tournois[0])
-    print(type(liste_tournois))
-    """
-    liste = get_tournoi_list()
-    print(liste)
-    print(liste[1])
-    print(type(liste))
-    """
+
+
